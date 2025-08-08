@@ -12,7 +12,7 @@ function App() {
 
   const fetchNotes = async () => {
     try {
-      const res = await axios.get("/api/notes");
+      const res = await axios.get("https://mern-notes-app-8n4b.onrender.com/api/notes");
       setNotes(res.data);
     } catch (err) {
       alert("Error fetching notes");
@@ -24,7 +24,7 @@ function App() {
     if (!text.trim()) return alert("Please enter some text");
 
     try {
-      const res = await axios.post("/api/notes", { text });
+      const res = await axios.post("https://mern-notes-app-8n4b.onrender.com/api/notes", { text });
       setNotes([res.data, ...notes]);
       setText("");
     } catch (err) {
@@ -34,7 +34,7 @@ function App() {
 
   const deleteNote = async (id) => {
     try {
-      await axios.delete(`/api/notes/${id}`);
+      await axios.delete(`https://mern-notes-app-8n4b.onrender.com/api/notes/${id}`);
       setNotes(notes.filter((note) => note._id !== id));
     } catch (err) {
       alert("Error deleting note");
